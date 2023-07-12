@@ -1,0 +1,207 @@
+1.Create a superclass called Animal with a method makeSound() that prints the sound made by the animal. Implement subclasses Dog, Cat, and Cow that inherit from the Animal class. Implement the makeSound() method in each subclass to print the sound made by a dog, cat, and cow, respectively.
+Ans:-
+class Animal {
+    public void makeSound() {
+        System.out.println("The animal makes a sound.");
+    }
+}
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The dog barks.");
+    }
+}
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The cat meows.");
+    }
+}
+class Cow extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The cow moos.");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        animal.makeSound(); // Output: The animal makes a sound.
+        Dog dog = new Dog();
+        dog.makeSound(); // Output: The dog barks.
+        Cat cat = new Cat();
+        cat.makeSound(); // Output: The cat meows.
+        Cow cow = new Cow();
+        cow.makeSound(); // Output: The cow moos.
+    }
+}
+
+2. Create a superclass called Shape with an abstract method calculateArea() that returns the area of the shape. Implement subclasses Rectangle, Circle, and Triangle that inherit from the Shape class. Implement the calculateArea() method in each subclass to calculate and return the area of a rectangle, circle, and triangle, respectively. Then, create a class called ShapeCalculator with a method printArea(Shape shape) that accepts an object of type Shape and prints its area. Demonstrate polymorphism by passing instances of different subclasses to the printArea() method.
+Ans:-
+// Shape class
+abstract class Shape {
+    public abstract double calculateArea();
+}
+
+// Rectangle class
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    public double calculateArea() {
+        return length * width;
+    }
+}
+
+// Circle class
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Triangle class
+class Triangle extends Shape {
+    private double base;
+    private double height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    public double calculateArea() {
+        return 0.5 * base * height;
+    }
+}
+
+// ShapeCalculator class
+class ShapeCalculator {
+    public void printArea(Shape shape) {
+        double area = shape.calculateArea();
+        System.out.println("The area of the shape is: " + area);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        ShapeCalculator calculator = new ShapeCalculator();
+
+        Rectangle rectangle = new Rectangle(4, 5);
+        calculator.printArea(rectangle); // Output: The area of the shape is: 20.0
+
+        Circle circle = new Circle(3);
+        calculator.printArea(circle); // Output: The area of the shape is: 28.274333882308138
+
+        Triangle triangle = new Triangle(6, 8);
+        calculator.printArea(triangle); // Output: The area of the shape is: 24.0
+    }
+}
+
+3. Create a class called Person with private properties like name, age, and address. Provide public getter and setter methods for these properties. Write a program that creates an instance of the Person class, sets values for its properties using the setter methods, and displays the values using the getter methods.
+Ans:-
+// Person class
+class Person {
+    private String name;
+    private int age;
+    private String address;
+
+    // Getter methods
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    // Setter methods
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Person person = new Person();
+
+        // Set values using setter methods
+        person.setName("John Doe");
+        person.setAge(30);
+        person.setAddress("123 Main St");
+
+        // Retrieve values using getter methods
+        String name = person.getName();
+        int age = person.getAge();
+        String address = person.getAddress();
+
+        // Display the values
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Address: " + address);
+    }
+}
+
+4. Create an interface called Drawable with a method draw() that has no implementation. Implement this interface in classes Circle and Rectangle. Write a program that creates objects of Circle and Rectangle and calls the draw() method on each object.
+Ans:-
+// Drawable interface
+interface Drawable {
+    void draw();
+}
+
+// Circle class implementing Drawable interface
+class Circle implements Drawable {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+// Rectangle class implementing Drawable interface
+class Rectangle implements Drawable {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle();
+        circle.draw(); // Output: Drawing a circle
+
+        Rectangle rectangle = new Rectangle();
+        rectangle.draw(); // Output: Drawing a rectangle
+    }
+}
+
+
